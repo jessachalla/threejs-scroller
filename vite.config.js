@@ -3,7 +3,7 @@ const isCodeSandbox = !!process.env.SANDBOX_URL
 export default {
     root: "src/",
     publicDir: "../static/",
-    base: "./",
+    base: "/threejs-scroller",
     server:
     {
         host: true,
