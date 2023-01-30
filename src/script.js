@@ -2,6 +2,12 @@ import './style.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import gsap from 'gsap'
+import px from '/environmentMaps/0/px.jpg' 
+import nx from '/environmentMaps/0/nx.jpg'
+import py from '/environmentMaps/0/py.jpg'
+import ny from '/environmentMaps/0/ny.jpg'
+import pz from '/environmentMaps/0/pz.jpg'
+import nz from '/environmentMaps/0/nz.jpg' 
 
 /**
  * Debug
@@ -14,12 +20,12 @@ const gui = new dat.GUI()
 const cubeTextureLoader = new THREE.CubeTextureLoader()
 
 const environmentMapTexture = cubeTextureLoader.load([
-    '/environmentMaps/0/px.jpg',
-    '/environmentMaps/0/nx.jpg',
-    '/environmentMaps/0/py.jpg',
-    '/environmentMaps/0/ny.jpg',
-    '/environmentMaps/0/pz.jpg',
-    '/environmentMaps/0/nz.jpg'
+    px,
+    nx,
+    py,
+    ny,
+    pz,
+    nz
 ])
 
 /**
