@@ -4,7 +4,7 @@
 }
 
 html {
-    background-image: linear-gradient(to bottom left, rgb(207, 243, 255), rgb(18, 105, 163));
+    background-image: linear-gradient(to bottom left, rgb(207, 243, 255), rgb(49, 101, 144));
 }
 
 .webgl {
@@ -31,23 +31,36 @@ html {
 
 .about-section {
     display: flex;
+    height: 100vh;
+    position: relative;
     flex-direction: column;
     font-family: 'Cabin', sans-serif;
     color: #ffeded;
     font-size: 7vmin;
     padding: 10%;
+    width: 50vw;
 }
 
 .about-section p {
     font-size: 3vmin;
-    margin-bottom: 1.5vmin;
+    margin-top: 3vmin;
 }
 
 .about-section a {
-    color: rgb(1, 72, 119);
+    color: rgb(2, 71, 117);
     text-decoration: none;
+    font-weight: bold;
 }
 
 .section:nth-child(odd) {
     justify-content: flex-end;
 }
+
+@media (max-width: 1000px) {
+    .about-section {
+        width: 70vw;
+    }
+    .about-section p {
+        font-size: 16px;
+    }
+  }

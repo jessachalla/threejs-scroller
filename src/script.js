@@ -2,12 +2,12 @@ import './style.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import gsap from 'gsap'
-import px from '/environmentMaps/0/px.jpg' 
-import nx from '/environmentMaps/0/nx.jpg'
-import py from '/environmentMaps/0/py.jpg'
-import ny from '/environmentMaps/0/ny.jpg'
-import pz from '/environmentMaps/0/pz.jpg'
-import nz from '/environmentMaps/0/nz.jpg' 
+import px from '/environmentMaps/1/px.jpg'
+import nx from '/environmentMaps/1/nx.jpg'
+import py from '/environmentMaps/1/py.jpg'
+import ny from '/environmentMaps/1/ny.jpg'
+import pz from '/environmentMaps/1/pz.jpg'
+import nz from '/environmentMaps/1/nz.jpg'
 
 /**
  * Debug
@@ -43,7 +43,7 @@ const scene = new THREE.Scene()
 // Material
 const material = new THREE.MeshStandardMaterial()
 material.metalness = 0.8
-material.roughness = 0.3
+material.roughness = 0.2
 material.envMap = environmentMapTexture
 
 // Material debug
@@ -66,33 +66,42 @@ const mesh3 = new THREE.Mesh(
     new THREE.TorusKnotGeometry(.6, 0.15, 116, 116),
     material
 )
+const mesh4 = new THREE.Mesh(
+    new THREE.DodecahedronGeometry( .6, 0 ),
+    material
+)
 
 mesh1.position.y = - objectsDistance * 0
 mesh2.position.y = - objectsDistance * 1
 mesh3.position.y = - objectsDistance * 2
+mesh4.position.y = - objectsDistance * 3
 
 function objectPosition() {
     if (window.innerWidth < 1000) {
         mesh1.position.x = 0
         mesh2.position.x = 0
         mesh3.position.x = 0
+        mesh4.position.x = 0
         mesh1.position.y = 0
         mesh2.position.y = -4
         mesh3.position.y = -8
+        mesh4.position.y = -13
     }
     else {
         mesh1.position.x = 1.5
         mesh2.position.x = -1.2
         mesh3.position.x = 1.5
+        mesh4.position.x = 1.6
+        mesh4.position.y = -12
     }
 }
 objectPosition()
 
-window.addEventListener("resize", objectPosition) 
+window.addEventListener("resize", objectPosition)
 
-scene.add(mesh1, mesh2, mesh3)
+scene.add(mesh1, mesh2, mesh3, mesh4)
 
-const sectionMeshes = [mesh1, mesh2, mesh3]
+const sectionMeshes = [mesh1, mesh2, mesh3, mesh4]
 
 /**
  * Lights
@@ -161,16 +170,13 @@ window.addEventListener('scroll', () => {
 
     if (newSection != currentSection) {
         currentSection = newSection
-
         gsap.to(
             sectionMeshes[currentSection].rotation,
             {
                 duration: 1.8,
                 ease: 'power3.inOut',
-                x: '+=6',
-                y: '+=3'
-            }
-        )
+                x: '+=8',
+            })
     }
 })
 
@@ -210,6 +216,7 @@ const tick = () => {
         mesh.rotation.x += deltaTime * 0.1
         mesh.rotation.y += deltaTime * 0.12
     }
+
 
     // Render
     renderer.render(scene, camera)
