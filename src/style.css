@@ -1,16 +1,13 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
 }
 
-html 
-{
+html {
     background-image: linear-gradient(to bottom left, rgb(207, 243, 255), rgb(18, 105, 163));
 }
 
-.webgl
-{
+.webgl {
     position: fixed;
     top: 0;
     left: 0;
@@ -19,8 +16,7 @@ html
 }
 
 
-.section
-{
+.section {
     display: flex;
     align-items: center;
     height: 100vh;
@@ -52,7 +48,6 @@ html
     text-decoration: none;
 }
 
-section:nth-child(odd)
-{
+.section:nth-child(odd) {
     justify-content: flex-end;
 }
