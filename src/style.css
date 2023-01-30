@@ -58,7 +58,7 @@ html {
 
 @media (max-width: 1000px) {
     .about-section {
-        width: 70vw;
+        width: 80vw;
     }
     .about-section p {
         font-size: 16px;

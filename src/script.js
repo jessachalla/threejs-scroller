@@ -228,4 +228,3 @@ const tick = () => {
 tick()
 
 
-// document.getElementById("link1").addEventListener('click', window.open(href));
